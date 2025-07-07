@@ -1,17 +1,19 @@
 {
   "name": "Contacts App",
   "short_name": "ContactApp",
-  "start_url": "index.html",
+  "start_url": "/contacts.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#317EFB",
   "icons": [
     {
       "src": "images/defualtUser.png",
+      "sizes": "360x360",
       "type": "image/png"
     },
     {
       "src": "images/nocontacts.png",
+      "sizes": "500x500",
       "type": "image/png"
     }
   ]

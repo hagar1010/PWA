@@ -1,7 +1,7 @@
 const CACHE_NAME = "v1";
 const ASSETS = [
   "/",
-  "/index.html",
+  "/contacts.html",
   "/css/style.css",
   "/js/main.js",
   "/images/defualtUser.png",
