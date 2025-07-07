@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact List App</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#317EFB" />
+</head>
+
+<body>
+  <section class="contacts">
+    <div class="contact-header">
+      <div class="search">
+        <input id="search" placeholder="Search...">
+        <i class="fa-solid fa-search"></i>
+      </div>
+      <div id="toggle" class="toggle"><span>☀︎</span>&nbsp;<span>⏾</span></div>
+    </div>
+    <div class="contact-header">
+      <h1>Contacts <span></span></h1>
+      <div>
+        <button id="filter">
+          <i class="fa-solid fa-filter"></i>
+          <div class="tags-filter">
+            <p data-tag="All">All</p>
+            <p data-tag="Family"><i class="fa-solid fa-house-chimney-window"></i>Family</p>
+            <p data-tag="Friend"><i class="fa-solid fa-user-group"></i>Friend</p>
+            <p data-tag="Work"><i class="fa-solid fa-briefcase"></i> Work</p>
+            <p data-tag="Favorite"><i class="fa-solid fa-star"></i>Favorite</p>
+          </div>
+        </button>
+        <button id="add_contact">
+          Create&nbsp;
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <button id="exportBtn">Export Contacts &nbsp; <i class="fa-solid fa-file-export"></i></button>
+      </div>
+    </div>
+
+    <div class="tost">
+      <p></p>
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <!-- <th style="opacity: 0;">ID</th> -->
+          <th style="opacity: 0;">Avatar</th>
+          <th>Name
+            <!-- &nbsp;&nbsp;&nbsp; <i class="fa-solid fa-sort" id="sortContacts"></i> -->
+          </th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Group</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+      </tbody>
+    </table>
+    <div>
+      <button id="viewMoreBtn">View More</button>
+    </div>
+
+
+    <!-- modal -->
+    <div class="add-modal">
+      <div class="add">
+        <div style="text-align: center;">
+          <div class="name-img">
+            <input type="file" accept="image/*" id="contactImage" />
+            <img src="" alt="avatar" />
+            <div class="modal-avatar"></div>
+          </div>
+          <button id="resetImg">Reset</button>
+        </div>
+        <div>
+          <input type="text" placeholder="Name" id="contact_form_name">
+          <div class="error-message" id="error-name">Name is required.</div>
+          <input type="text" placeholder="Phone" id="contact_form_phone">
+          <div class="error-message" id="error-phone">Valid phone is required (e.g., 010-1234-5678).</div>
+          <input type="email" placeholder="Email" id="contact_form_email">
+          <div class="error-message" id="error-email">Valid email is required.</div>
+          <input type="text" placeholder="Address" id="contact_form_address">
+          <div class="error-message" id="error-address">Address is required.</div>
+          <select id="contact_form_tags">
+            <option value="--">none</option>
+            <option value="Family">Family</option>
+            <option value="Friend">Friend</option>
+            <option value="Work">Work</option>
+          </select>
+          <button class="save-btn save">Save</button>
+          <button class="cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- delete confirm modal -->
+    <div class="delete-modal">
+      <div class="add" style="justify-content: center;">
+        <div>
+          <p>Are You Sure To Delete This Contact?</p>
+          <br />
+          <br />
+          <button class="confirm save">Confirm</button>
+          <button class="cancelDelete">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------ja script--------------------------------->
+  <script src="js/main.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("../service-worker.js")
+      .then(reg => console.log("Service Worker registered", reg))
+      .catch(err => console.error("Service Worker failed", err));
+  });
+}
+  </script>
+</body>
+
+</html>
